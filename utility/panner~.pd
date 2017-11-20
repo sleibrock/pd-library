@@ -1,0 +1,50 @@
+#N canvas 2 48 1916 577 10;
+#X obj 11 90 inlet~;
+#X obj 163 88 inlet;
+#X obj 9 357 *~;
+#X obj 134 357 *~;
+#X obj 9 378 outlet~;
+#X obj 135 378 outlet~;
+#X obj 18 27 hsl 70 15 0 1 0 0 \$0-SLIDER-OUT \$0-SLIDER-IN empty -2
+-8 0 10 -262144 -1 -1 3400 1;
+#X text 51 13 panner;
+#X obj 10 115 s~ \$0-IN;
+#X obj 135 282 r~ \$0-IN;
+#X obj 9 282 r~ \$0-IN;
+#X obj 163 109 max 0;
+#X obj 163 129 min 1;
+#X obj 163 149 s \$0-SLIDER-IN;
+#X obj 24 302 r \$0-SLIDER-OUT;
+#X obj 149 302 r \$0-SLIDER-OUT;
+#X obj 24 327 expr 1 - $f1;
+#X obj 10 153 loadbang;
+#X obj 10 176 f 0.5;
+#X obj 10 197 s \$0-SLIDER-IN;
+#X text 20 263 left output;
+#X text 141 263 right output;
+#X text 60 88 signal inlet;
+#X text 68 174 load the panner at half;
+#X text 114 11 The Panner takes an audio signal and splits it to two
+channels. The slider controls how much goes to each channel. It accepts
+a second inlet to control the slider.;
+#X text 207 83 receive outside input to set the panner. make sure it
+falls in range of [0..1] by using max/min. afterwards \, adjust the
+slider.;
+#X obj 7 246 cnv 15 500 5 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 9 67 cnv 15 500 5 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X connect 0 0 8 0;
+#X connect 1 0 11 0;
+#X connect 2 0 4 0;
+#X connect 3 0 5 0;
+#X connect 9 0 3 0;
+#X connect 10 0 2 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 14 0 16 0;
+#X connect 15 0 3 1;
+#X connect 16 0 2 1;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X coords 0 -1 1 1 85 40 1 10 10;
